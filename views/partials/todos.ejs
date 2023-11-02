@@ -19,7 +19,9 @@
 
   <% if (data.todo ) { %>
   <!-- -->
-  <%= Array.isArray(data.todo) ? data.todo.length : 1 %> items left
+  <div class="count">
+    <%= Array.isArray(data.todo) ? data.todo.length : 1 %> item<%= Array.isArray(data.todo) && data.todo.length > 1 ? "s" : "" %> left
+  </div>
   <!-- -->
   <% } %>
 </form>

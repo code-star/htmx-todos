@@ -94,6 +94,38 @@ form ul {
   padding: 0;
 }
 
+form ul li {
+  display: flex;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-left: none;
+  border-right: none;
+}
+
+form ul .checkbox-label {
+  background-color: #f5f5f5;
+}
+
+form ul input[type="checkbox"] {
+  visibility: hidden;
+  height: 4rem;
+  width: 4rem;
+  margin: 0;
+}
+
+form ul input[type="checkbox"]:checked {
+  visibility: visible;
+}
+
+form ul input[type="text"] {
+  border: none;
+}
+
+form .count {
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
 footer {
   font-family: sans-serif;
 }
