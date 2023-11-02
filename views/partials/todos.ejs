@@ -1,0 +1,32 @@
+<form hx-post="/new-todo" hx-target="this" hx-swap="outerHTML">
+  <input type="text" placeholder="What needs to be done?" name="newTodo" />
+  <button class="btn">Submit</button>
+  <ul>
+    <!-- <li>
+      <input type="checkbox" hx-trigger="key" />
+      <input type="text" value="item1" name="todo" />
+    </li>
+    <li>item2</li> -->
+    <li>
+      <input type="checkbox" hx-trigger="key" />
+      <input type="text" value="<%= data.newTodo %>" name="todo" />
+    </li>
+
+    <% if (data.todo && !Array.isArray(data.todo)) { %>
+    <li>
+      <input type="checkbox" hx-trigger="key" />
+      <input type="text" value="<%= data.todo %>" name="todo" />
+    </li>
+    <% } %>
+
+    <!-- -->
+    <% data.todo && Array.isArray(data.todo) && data.todo.forEach(function(t){
+    %>
+    <li>
+      <input type="checkbox" hx-trigger="key" />
+      <input type="text" value="<%= t %>" name="todo" />
+    </li>
+    <% }); %>
+  </ul>
+  3 items left
+</form>

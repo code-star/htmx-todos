@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('../partials/head'); %>
-</head>
-<body class="container">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
 
-<header>
-  <%- include('../partials/header'); %>
-</header>
+    <main>
+      <div class="jumbotron">
+        <h1>todos</h1>
+        <!-- <p>The only loaded client side JS is HTMX from the CDN.</p> -->
 
-<main>
-  <div class="jumbotron">
-    <h1>This is great</h1>
-    <p>Welcome to templating using EJS</p>
-  </div>
-</main>
+        <div>
+          <button
+            hx-post="/foo"
+            hx-trigger="click"
+            hx-target="#result-div"
+            hx-swap="innerHTML"
+          >
+            Post TODO
+          </button>
+        </div>
+        <div id="result-div">result</div>
 
-<footer>
-  <%- include('../partials/footer'); %>
-</footer>
+        <%- include('../partials/todos', {data: {}}); %>
+      </div>
+    </main>
 
-</body>
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
 </html>
