@@ -3,6 +3,7 @@ body {
   background-color: #f5f5f5;
   color: #4d4d4d;
   height: calc(100% - 10px);
+  margin: 0;
 }
 
 body.container {
@@ -12,14 +13,17 @@ body.container {
 }
 
 body.container > header {
+  margin-bottom: 3rem;
   width: 500px;
 }
 
 .navbar {
   display: flex;
+  justify-content: space-between;
 }
 
 .navbar .navbar-brand {
+  display: block;
   background-color: #4d4d4d;
   font-family: sans-serif;
   color: #f5f5f5;
@@ -32,14 +36,20 @@ body.container > header {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  gap: 5px;
 }
 
 .navbar .nav-link {
-  background-color: #4d4d4d;
+  display: block;
+  background-color: #ead8d8;
   font-family: sans-serif;
-  color: #f5f5f5;
+  color: #4d4d4d;
   text-decoration: none;
   padding: 1rem;
+}
+
+.navbar .nav-link:hover {
+  background-color: #e6e6e6;
 }
 
 body.container > main {
