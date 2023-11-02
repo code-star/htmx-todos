@@ -1,6 +1,6 @@
 <form hx-post="/new-todo" hx-target="this" hx-swap="outerHTML">
   <input type="text" placeholder="What needs to be done?" name="todo" />
-  <button class="btn">Submit</button>
+  <button class="btn hidden">Submit</button>
 
   <!-- -->
   <ul>
@@ -10,9 +10,16 @@
 
     <!-- If there are more than one todo, data.todo is an array -->
     <% data.todo && Array.isArray(data.todo) && data.todo.forEach(function(t){
-    %> <%- include('../partials/todo-item', {title: t}); %> <% }); %>
+    %>
+    <!-- -->
+    <%- include('../partials/todo-item', {title: t}); %>
+    <!-- -->
+    <% }); %>
   </ul>
 
-  <% if (data.todo ) { %> <%= Array.isArray(data.todo) ? data.todo.length : 1 %>
-  items left <% } %>
+  <% if (data.todo ) { %>
+  <!-- -->
+  <%= Array.isArray(data.todo) ? data.todo.length : 1 %> items left
+  <!-- -->
+  <% } %>
 </form>

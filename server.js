@@ -1,8 +1,9 @@
 var express = require("express");
 var app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // set the view engine to ejs
 app.set("view engine", "ejs");
