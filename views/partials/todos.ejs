@@ -1,32 +1,18 @@
 <form hx-post="/new-todo" hx-target="this" hx-swap="outerHTML">
-  <input type="text" placeholder="What needs to be done?" name="newTodo" />
+  <input type="text" placeholder="What needs to be done?" name="todo" />
   <button class="btn">Submit</button>
+
+  <!-- -->
   <ul>
-    <!-- <li>
-      <input type="checkbox" hx-trigger="key" />
-      <input type="text" value="item1" name="todo" />
-    </li>
-    <li>item2</li> -->
-    <li>
-      <input type="checkbox" hx-trigger="key" />
-      <input type="text" value="<%= data.newTodo %>" name="todo" />
-    </li>
+    <!-- If there is only one todo, data.todo is not an array -->
+    <% if (data.todo && !Array.isArray(data.todo)) { %> <%-
+    include('../partials/todo-item', {title: data.todo}); %> <% } %>
 
-    <% if (data.todo && !Array.isArray(data.todo)) { %>
-    <li>
-      <input type="checkbox" hx-trigger="key" />
-      <input type="text" value="<%= data.todo %>" name="todo" />
-    </li>
-    <% } %>
-
-    <!-- -->
+    <!-- If there are more than one todo, data.todo is an array -->
     <% data.todo && Array.isArray(data.todo) && data.todo.forEach(function(t){
-    %>
-    <li>
-      <input type="checkbox" hx-trigger="key" />
-      <input type="text" value="<%= t %>" name="todo" />
-    </li>
-    <% }); %>
+    %> <%- include('../partials/todo-item', {title: t}); %> <% }); %>
   </ul>
-  3 items left
+
+  <% if (data.todo ) { %> <%= Array.isArray(data.todo) ? data.todo.length : 1 %>
+  items left <% } %>
 </form>
