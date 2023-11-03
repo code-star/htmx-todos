@@ -23,6 +23,8 @@ class LeafletMap extends HTMLElement {
       attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(this.mapElem);
+
+    const marker = L.marker([x, y]).addTo(this.mapElem);
   }
 
   //   attributeChangedCallback(name, oldValue, newValue) {
