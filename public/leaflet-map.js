@@ -13,7 +13,10 @@ class LeafletMap extends HTMLElement {
         <div id="map"></div>
     </div>`;
 
-    this.mapElem = L.map("map").setView([this.x, this.y], 13);
+    const x = this.getAttribute("x");
+    const y = this.getAttribute("y");
+
+    this.mapElem = L.map("map").setView([x, y], 13);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -22,17 +25,17 @@ class LeafletMap extends HTMLElement {
     }).addTo(this.mapElem);
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-    setTimeout(() => {
-      console.log(
-        `Attribute ${name} has changed from ${oldValue} to ${newValue}.`
-      );
-      if (name === "x") {
-        this.mapElem.setView([newValue, this.y], 13);
-      }
-      if (name === "y") {
-        this.mapElem.setView([this.x, newValue], 13);
-      }
-    }, 1000);
-  }
+  //   attributeChangedCallback(name, oldValue, newValue) {
+  //     setTimeout(() => {
+  //       console.log(
+  //         `Attribute ${name} has changed from ${oldValue} to ${newValue}.`
+  //       );
+  //       if (name === "x") {
+  //         this.mapElem.setView([newValue, this.y], 13);
+  //       }
+  //       if (name === "y") {
+  //         this.mapElem.setView([this.x, newValue], 13);
+  //       }
+  //     }, 1000);
+  //   }
 }

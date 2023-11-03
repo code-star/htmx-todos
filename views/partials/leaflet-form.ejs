@@ -1,10 +1,22 @@
+<% include('../util/getX') %>
+
 <form hx-post="/stores-map" hx-target="this" hx-swap="outerHTML">
-  <input type="number" placeholder="x" name="x" value="<%= data.x ?? 0 %>" />
-  <input type="number" placeholder="y" name="y" value="<%= data.y ?? 0 %>" />
+  <!-- <input placeholder="kpn,codestar,ordina" name="name1" value="<%= data.name ??
+  "ordina" %>" /> -->
+
+  <select name="name">
+    <option value="ordina">Ordina</option>
+    <option value="kpn">KPN</option>
+    <option value="codestar">Codestar</option>
+  </select>
+
+  <!-- <input type="number" placeholder="x" name="x" value="<%= data.name === "kpn" ? 51.9070121 : 51.0517983 %>" /> -->
+  <!-- <input type="number" placeholder="y" name="y" value="<%= data.y ?? 0 %>" /> -->
   <button class="btn">Submit</button>
 
   <!-- Ordina+Belgium+-+Mechelen/@51.0517983,4.4515703 -->
   <!-- Codestar/@52.0576631,5.1122532 -->
   <!-- KPN+Ventures/@51.9070121,4.4866698,17z -->
-  <leaflet-map x="<%= data.x ?? 0 %>" y="<%= data.y ?? 0 %>" />
+  <%= data.name %> <leaflet-map x="<%= getX(data.name) %>" y="<%= data.name === "kpn" ? 4.4866698 : 4.4515703
+  %>" />
 </form>
