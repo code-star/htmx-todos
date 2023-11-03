@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
+
+    <main>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="jumbotron">
+            <h1>todos HTMX</h1>
+            <%- include('../partials/todos', {data: {}}); %>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="jumbotron">
+            <h1>todos JX</h1>
+            <%- include('../partials/todos-jx', {data: {}}); %>
+          </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+</html>

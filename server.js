@@ -15,6 +15,11 @@ app.get("/", function (req, res) {
   res.render("pages/index");
 });
 
+// JX page
+app.get("/jx", function (req, res) {
+  res.render("pages/jx");
+});
+
 // about page
 app.get("/about", function (req, res) {
   res.render("pages/about");

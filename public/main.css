@@ -57,6 +57,20 @@ body.container > main {
   width: 500px;
 }
 
+body.container > main:has(.row) {
+  flex: 1;
+  width: 1000px;
+}
+
+body.container > main > .row {
+  display: flex;
+  gap: 50px;
+}
+
+body.container > main > .row > .col-sm-6 {
+  flex: 1;
+}
+
 .jumbotron > h1 {
   color: #ead8d8;
   text-align: center;
