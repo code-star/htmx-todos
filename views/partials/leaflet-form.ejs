@@ -1,34 +1,19 @@
 <% include('../util/getCoords') %>
 
-<form hx-post="/stores-map" hx-target="this" hx-swap="outerHTML">
-  <!-- <input placeholder="kpn,codestar,ordina" name="name1" value="<%= data.name ??
-  "ordina" %>" /> -->
+<form hx-post="/stores-map" hx-target="this" hx-swap="outerHTML" hx-trigger="change from:select[name=name]">
+    <select name="name">
+        <%
+        [ "Ordina", "KPN", "Codestar" ].forEach(option => {
+            const selected = data.name === option.toLowerCase() ? "selected" : "";
+            %><option value="<%=option.toLowerCase() %>" <%=selected %>><%= option %></option><%
+        })
+        %>
+    </select>
 
-  <select name="name">
-    <!-- <option value="ordina" <%= data.name === 'ordina' ? 'selected' : '' %>>Ordina</option>
-    <option value="kpn" <%= data.name === 'kpn' ? 'selected' : '' %>>KPN</option>
-    <option value="codestar" <%= data.name === 'codestar' ? 'selected' : '' %>>Codestar</option> -->
+    <!-- <button class="btn">Submit</button> -->
 
-    
-
-    <%
-    [ "Ordina", "KPN", "Codestar" ].forEach(option => {
-        const selected = data.name === option.toLowerCase() ? "selected" : "";
-        %><option value="<%=option.toLowerCase() %>" <%=selected %>><%= option %></option><%
-    })
-    %>
-  </select>
-
-  <!-- <input type="number" placeholder="x" name="x" value="<%= data.name === "kpn" ? 51.9070121 : 51.0517983 %>" /> -->
-  <!-- <input type="number" placeholder="y" name="y" value="<%= data.y ?? 0 %>" /> -->
-  <button class="btn">Submit</button>
-
-  <!-- Ordina+Belgium+-+Mechelen/@51.0517983,4.4515703 -->
-  <!-- Codestar/@52.0576631,5.1122532 -->
-  <!-- KPN+Ventures/@51.9070121,4.4866698,17z -->
-  <!-- <%= data.name %> -->
-  <leaflet-map
-    x="<%= getCoords(data.name).x %>"
-    y="<%= getCoords(data.name).y %>"
-  />
+    <leaflet-map
+        x="<%= getCoords(data.name).x %>"
+        y="<%= getCoords(data.name).y %>"
+    />
 </form>
