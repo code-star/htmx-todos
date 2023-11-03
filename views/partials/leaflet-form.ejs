@@ -5,9 +5,9 @@
   "ordina" %>" /> -->
 
   <select name="name">
-    <option value="ordina">Ordina</option>
-    <option value="kpn">KPN</option>
-    <option value="codestar">Codestar</option>
+    <option value="ordina" <%= data.name === 'ordina' ? 'selected' : '' %>>Ordina</option>
+    <option value="kpn" <%= data.name === 'kpn' ? 'selected' : '' %>>KPN</option>
+    <option value="codestar" <%= data.name === 'codestar' ? 'selected' : '' %>>Codestar</option>
   </select>
 
   <!-- <input type="number" placeholder="x" name="x" value="<%= data.name === "kpn" ? 51.9070121 : 51.0517983 %>" /> -->
@@ -17,7 +17,7 @@
   <!-- Ordina+Belgium+-+Mechelen/@51.0517983,4.4515703 -->
   <!-- Codestar/@52.0576631,5.1122532 -->
   <!-- KPN+Ventures/@51.9070121,4.4866698,17z -->
-  <%= data.name %>
+  <!-- <%= data.name %> -->
   <leaflet-map
     x="<%= getCoords(data.name).x %>"
     y="<%= getCoords(data.name).y %>"
