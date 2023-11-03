@@ -3,8 +3,8 @@ class LeafletMap extends HTMLElement {
 
   constructor() {
     super();
-    this.x = 51;
-    this.y = 1;
+    this.x = 51.0517983;
+    this.y = 4.4515703;
     this.mapElem = null;
   }
 
