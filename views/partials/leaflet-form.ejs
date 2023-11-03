@@ -1,4 +1,4 @@
-<% include('../util/getX') %>
+<% include('../util/getCoords') %>
 
 <form hx-post="/stores-map" hx-target="this" hx-swap="outerHTML">
   <!-- <input placeholder="kpn,codestar,ordina" name="name1" value="<%= data.name ??
@@ -17,6 +17,9 @@
   <!-- Ordina+Belgium+-+Mechelen/@51.0517983,4.4515703 -->
   <!-- Codestar/@52.0576631,5.1122532 -->
   <!-- KPN+Ventures/@51.9070121,4.4866698,17z -->
-  <%= data.name %> <leaflet-map x="<%= getX(data.name) %>" y="<%= data.name === "kpn" ? 4.4866698 : 4.4515703
-  %>" />
+  <%= data.name %>
+  <leaflet-map
+    x="<%= getCoords(data.name).x %>"
+    y="<%= getCoords(data.name).y %>"
+  />
 </form>
