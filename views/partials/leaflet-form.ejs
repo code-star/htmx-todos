@@ -5,9 +5,18 @@
   "ordina" %>" /> -->
 
   <select name="name">
-    <option value="ordina" <%= data.name === 'ordina' ? 'selected' : '' %>>Ordina</option>
+    <!-- <option value="ordina" <%= data.name === 'ordina' ? 'selected' : '' %>>Ordina</option>
     <option value="kpn" <%= data.name === 'kpn' ? 'selected' : '' %>>KPN</option>
-    <option value="codestar" <%= data.name === 'codestar' ? 'selected' : '' %>>Codestar</option>
+    <option value="codestar" <%= data.name === 'codestar' ? 'selected' : '' %>>Codestar</option> -->
+
+    
+
+    <%
+    [ "Ordina", "KPN", "Codestar" ].forEach(option => {
+        const selected = data.name === option.toLowerCase() ? "selected" : "";
+        %><option value="<%=option.toLowerCase() %>" <%=selected %>><%= option %></option><%
+    })
+    %>
   </select>
 
   <!-- <input type="number" placeholder="x" name="x" value="<%= data.name === "kpn" ? 51.9070121 : 51.0517983 %>" /> -->
