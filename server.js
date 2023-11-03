@@ -30,8 +30,13 @@ app.post("/foo", function (req, res) {
 });
 
 app.post("/new-todo", function (req, res) {
-  console.log(req.body);
+  console.log("posted to /new-todo with:", req.body);
   res.render("partials/todos", { data: req.body });
+});
+
+app.post("/new-todo-jx", function (req, res) {
+  console.log("posted to /new-todo-jx with:", req.body);
+  res.render("partials/todos-jx", { data: req.body });
 });
 
 app.listen(8080);

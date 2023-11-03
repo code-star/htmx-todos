@@ -1,4 +1,4 @@
-<form jx-post="/new-todo" jx-target="this" jx-swap="outerHTML">
+<form jx-post="/new-todo-jx" jx-target="this" jx-swap="outerHTML">
   <input type="text" placeholder="What needs to be done?" name="todo" />
   <button class="btn hidden">Submit</button>
 
@@ -6,13 +6,13 @@
   <ul>
     <!-- If there is only one todo, data.todo is not an array -->
     <% if (data.todo && !Array.isArray(data.todo)) { %> <%-
-    include('../partials/todo-item', {title: data.todo}); %> <% } %>
+    include('../partials/todo-item-jx', {title: data.todo}); %> <% } %>
 
     <!-- If there are more than one todo, data.todo is an array -->
     <% data.todo && Array.isArray(data.todo) && data.todo.forEach(function(t){
     %>
     <!-- -->
-    <%- include('../partials/todo-item', {title: t}); %>
+    <%- include('../partials/todo-item-jx', {title: t}); %>
     <!-- -->
     <% }); %>
   </ul>
