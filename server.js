@@ -25,6 +25,10 @@ app.get("/about", function (req, res) {
   res.render("pages/about");
 });
 
+app.get("/stores", function (req, res) {
+  res.render("pages/stores");
+});
+
 app.post("/foo", function (req, res) {
   res.send({ baz: "bat" });
 });
